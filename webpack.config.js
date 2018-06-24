@@ -43,6 +43,9 @@ module.exports = {
     fs: 'empty'
   },
   resolve: {
+    alias: {
+        vue: 'vue/dist/vue.js'
+    },
     modules: [
       __dirname,
       'node_modules',
