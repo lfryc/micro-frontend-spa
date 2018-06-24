@@ -14,7 +14,6 @@ module.exports = {
       '@angular/core',
       '@angular/platform-browser-dynamic',
       '@angular/router',
-      'reflect-metadata',
       /* Just one version of react, too. react-router is fine to have multiple versions of,
        * though, so no need to put it in common dependencies
        */
