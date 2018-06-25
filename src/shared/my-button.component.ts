@@ -3,12 +3,12 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 @Component({
   selector: 'my-button',
   template: `
-    <button (click)="click.emit($event)" [value]="label" />
+    <button (click)="onClick.emit($event)">{{ label }}</button>
   `
 })
 export class MyButtonComponent {
 
   @Input() label;
 
-  @Output() click = new EventEmitter();
+  @Output() onClick = new EventEmitter();
 }

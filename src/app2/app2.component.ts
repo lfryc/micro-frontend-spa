@@ -11,8 +11,17 @@ import {Component} from '@angular/core';
 
     <router-outlet></router-outlet>
 
-    <test-component></test-component>
+    <my-button [label]="buttonLabel" (onClick)="buttonClicked()"></my-button>
   `,
 })
 export class App2 {
+
+  buttonLabel = 'Click me';
+
+  buttonClicked() {
+    this.buttonLabel = 'Hey, I was clicked, thank you!';
+    setTimeout(() => {
+      alert('Button clicked from Angular app');
+    });
+  }
 }
