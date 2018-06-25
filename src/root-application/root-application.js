@@ -19,3 +19,5 @@ function pathPrefix(prefix) {
     return location.pathname.startsWith(`${prefix}`);
   }
 }
+
+singleSpaNavigate('/app2');

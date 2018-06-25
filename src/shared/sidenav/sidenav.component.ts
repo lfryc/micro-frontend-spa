@@ -4,8 +4,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   selector: 'my-sidenav',
   template: `
     <h3><a onclick="singleSpaNavigate('/app2')">Angular</a></h3>
-    <h3><a onclick="singleSpaNavigate('/app1')">React</a></h3>
     <h3><a onclick="singleSpaNavigate('/app3')">Vue</a></h3>
+    <h3><a onclick="singleSpaNavigate('/app1')">React</a></h3>
   `,
   styles: [`
         :host {
