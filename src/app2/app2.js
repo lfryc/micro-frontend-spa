@@ -16,10 +16,14 @@ export function bootstrap(props) {
 }
 
 export function mount(props) {
+  var el = domElementGetter();
+  el.style.display = 'block';
   return ngLifecycles.mount(props).then(val => {});
 }
 
 export function unmount(props) {
+  var el = document.getElementById('app2');
+  el.style.display = 'none';
   return ngLifecycles.unmount(props);
 }
 
@@ -29,7 +33,9 @@ function domElementGetter() {
   if (!el) {
     el = document.createElement('div');
     el.id = 'app2';
-    document.body.appendChild(el);
+    document.querySelector('main').appendChild(el);
+  } else {
+    el.style.display = 'block';
   }
 
   return el;

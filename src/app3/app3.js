@@ -6,13 +6,13 @@ const vueLifecycles = singleSpaVue({
     appOptions: {
         el: '#app3',
         template: `
-            <div id="app3" style="margin-top: 100px">
-                This was rendered by app 3, which is written in Vue.
-                <my-button v-bind:label="buttonLabel" v-on:onClick="buttonClicked"></my-button>
+            <div id="app3" style="width: 100%; height: 100%; background-color: lightgreen">
+                <p style="margin-top: 0; padding-top: 10px">Vue.js micro-frontend</p>
+                <p><my-button v-bind:label="buttonLabel" v-on:onClick="buttonClicked"></my-button></p>
             </div>
         `,
         data: {
-            buttonLabel: 'Click me'
+            buttonLabel: `I'm a web component, click me`
         },
         methods: {
             buttonClicked: function() {
@@ -27,7 +27,7 @@ const vueLifecycles = singleSpaVue({
 
 export const bootstrap = [
     function() {
-        createDomElement();
+        domElementGetter();
         return vueLifecycles.bootstrap();
     }
 ];
@@ -37,16 +37,22 @@ export const mount = [
 ];
 
 export const unmount = [
-    vueLifecycles.unmount,
+    function() {
+        var el = domElementGetter();
+        el.style.display = 'none';
+        return vueLifecycles.unmount();
+    }
 ];
 
-function createDomElement() {
+function domElementGetter() {
     // Make sure there is a div for us to render into
     let el = document.getElementById('app3');
     if (!el) {
         el = document.createElement('div');
         el.id = 'app3';
-        document.body.appendChild(el);
+        document.querySelector('main').appendChild(el);
+    } else {
+        el.style.display = 'block';
     }
 
     return el;

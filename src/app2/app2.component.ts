@@ -2,21 +2,38 @@ import {Component} from '@angular/core';
 
 @Component({
   selector: 'app2',
+  styles: [`
+    :host {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: indianred;
+    }
+    :host p:first-child {
+        margin-top: 0;
+        padding-top: 10px;
+    }
+  `],
   template: `
-    <div style="margin-top: 100px;">
-      This was rendered by App2 which is written in Angular
-    </div>
-    <a [routerLink]="['/subroute1']" routerLinkActive="active">Angular route 1</a>
-    <a [routerLink]="['/subroute2']" routerLinkActive="active">Angular route 2</a>
+    <p>Angular micro-frontend</p>
 
-    <router-outlet></router-outlet>
+    <p>
+        <my-button [label]="buttonLabel" (onClick)="buttonClicked()"></my-button>
+    </p>
+    
+    <p>
+      <a [routerLink]="['/subroute1']" routerLinkActive="active">Angular route 1</a> |
+      <a [routerLink]="['/subroute2']" routerLinkActive="active">Angular route 2</a>
+    </p>
 
-    <my-button [label]="buttonLabel" (onClick)="buttonClicked()"></my-button>
+    <p>
+        <router-outlet></router-outlet>
+    </p>
   `,
 })
 export class App2 {
 
-  buttonLabel = 'Click me';
+  buttonLabel = `I'm web component, click me`;
 
   buttonClicked() {
     this.buttonLabel = 'Hey, I was clicked, thank you!';

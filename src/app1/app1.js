@@ -19,6 +19,8 @@ export function mount(props) {
 }
 
 export function unmount(props) {
+  var el = domElementGetter()
+  el.style.display = 'none';
   return reactLifecycles.unmount(props);
 }
 
@@ -28,7 +30,9 @@ function domElementGetter() {
   if (!el) {
     el = document.createElement('div');
     el.id = 'app1';
-    document.body.appendChild(el);
+    document.querySelector('main').appendChild(el);
+  } else {
+    el.style.display = 'block';
   }
 
   return el;

@@ -6,7 +6,7 @@ export default class Root extends React.Component {
 
   constructor() {
     super();
-    this.buttonLabel = 'Click me';
+    this.buttonLabel = `I'm a web component, click me`;
   }
 
   buttonClicked() {
@@ -19,9 +19,9 @@ export default class Root extends React.Component {
 
   render() {
     return (
-      <div style={{marginTop: '100px'}}>
-        This was rendered by app 1, which is written in React.
-        <my-button label={this.buttonLabel} onClick={this.buttonClicked.bind(this)}></my-button>
+      <div style={{width: '100%', height: '100%', backgroundColor: 'deepskyblue'}}>
+        <p style={{marginTop: 0, paddingTop: 10}}>React micro-frontend.</p>
+        <p><my-button label={this.buttonLabel} onClick={this.buttonClicked.bind(this)}></my-button></p>
       </div>
     );
   }
