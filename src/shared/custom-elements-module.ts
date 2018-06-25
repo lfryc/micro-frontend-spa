@@ -1,7 +1,7 @@
 import {Injector, NgModule} from '@angular/core';
 import {createCustomElement} from '@angular/elements';
 import {BrowserModule} from '@angular/platform-browser';
-import {MyButtonComponent} from './my-button.component';
+import {ButtonComponent} from './button/button.component';
 
 
 @NgModule({
@@ -9,16 +9,16 @@ import {MyButtonComponent} from './my-button.component';
     BrowserModule,
   ],
   declarations: [
-    MyButtonComponent,
+    ButtonComponent,
   ],
   entryComponents: [
-    MyButtonComponent,
+    ButtonComponent,
   ]
 })
 export class CustomElementsModule {
 
   constructor(injector: Injector) {
-    customElements.define('my-button', createCustomElement(MyButtonComponent, {injector}) as any);
+    customElements.define('my-button', createCustomElement(ButtonComponent, {injector}) as any);
   }
 
   ngDoBootstrap() {

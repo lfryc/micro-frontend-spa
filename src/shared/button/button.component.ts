@@ -6,7 +6,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
     <button (click)="onClick.emit($event)">{{ label }}</button>
   `
 })
-export class MyButtonComponent {
+export class ButtonComponent {
 
   @Input() label;
 
