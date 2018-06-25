@@ -8,8 +8,20 @@ const vueLifecycles = singleSpaVue({
         template: `
             <div id="app3" style="margin-top: 100px">
                 This was rendered by app 3, which is written in Vue.
+                <my-button v-bind:label="buttonLabel" v-on:onClick="buttonClicked"></my-button>
             </div>
-        `
+        `,
+        data: {
+            buttonLabel: 'Click me'
+        },
+        methods: {
+            buttonClicked: function() {
+                this.buttonLabel = 'Hey, it seems that someone clicked me';
+                setTimeout(function() {
+                    alert('Button clicked from Vue');
+                })
+            }
+        }
     }
 });
 
