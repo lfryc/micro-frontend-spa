@@ -10,6 +10,8 @@ import {Component} from '@angular/core';
     <a [routerLink]="['/subroute2']" routerLinkActive="active">Angular route 2</a>
 
     <router-outlet></router-outlet>
+
+    <test-component></test-component>
   `,
 })
 export class App2 {

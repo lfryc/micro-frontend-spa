@@ -1,29 +1,24 @@
-import {Component, Inject, Injector, NgModule} from '@angular/core';
+import {Injector, NgModule} from '@angular/core';
 import {createCustomElement} from '@angular/elements';
 import {BrowserModule} from '@angular/platform-browser';
+import {MyButtonComponent} from './my-button.component';
 
-@Component({
-  selector: 'test-component',
-  template: `XYZ`
-})
-class TestComponent {
-}
 
 @NgModule({
   imports: [
     BrowserModule,
   ],
   declarations: [
-    TestComponent,
+    MyButtonComponent,
   ],
   entryComponents: [
-    TestComponent,
+    MyButtonComponent,
   ]
 })
 export class CustomElementsModule {
 
   constructor(injector: Injector) {
-    customElements.define('test-component', createCustomElement(TestComponent, {injector}) as any);
+    customElements.define('my-button', createCustomElement(MyButtonComponent, {injector}) as any);
   }
 
   ngDoBootstrap() {

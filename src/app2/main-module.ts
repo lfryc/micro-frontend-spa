@@ -5,6 +5,7 @@ import {Subroute1} from './subroute1.component.ts';
 import {Subroute2} from './subroute2.component.ts';
 import {RouterModule, Routes} from "@angular/router";
 import {APP_BASE_HREF} from "@angular/common";
+import {CustomElementsModule} from '../shared/custom-elements-module.ts';
 
 const appRoutes: Routes = [
   {
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes, {}),
+    CustomElementsModule,
   ],
   providers: [{provide: APP_BASE_HREF, useValue: '/app2/'}],
   declarations: [
