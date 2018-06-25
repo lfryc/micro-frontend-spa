@@ -1,7 +1,7 @@
 import {Injector, NgModule} from '@angular/core';
 import {createCustomElement} from '@angular/elements';
 import {BrowserModule} from '@angular/platform-browser';
-import {MyButtonComponent} from './my-button.component.ts';
+import {MyButtonComponent} from './my-button.component';
 
 
 @NgModule({
